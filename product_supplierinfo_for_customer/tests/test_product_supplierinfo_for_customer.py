@@ -105,9 +105,9 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
         Assign specific price for a variant (100.0) and for template (all
         other variants --> 30.0).
         """
-        template = self.env.ref('product.product_product_4_product_template')
-        product = template.product_variant_ids[0]
-        product_1 = template.product_variant_ids[1]
+        product = self.product
+        product_1 = self.env.ref('product.product_product_4b')
+        template = product.product_tmpl_id
 
         pricelist = self.env['product.pricelist'].create({
             'name': 'Test Pricelist Customer',
